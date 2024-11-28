@@ -1,5 +1,7 @@
 package com.zerofiltre.parkingbot.model;
 
+import java.security.PublicKey;
+
 public class Vehicle {
 
   private String registrationNumber;
@@ -12,4 +14,7 @@ public class Vehicle {
     this.registrationNumber = registrationNumber;
   }
 
+  public String getCategory(){
+    return "Vehicle";
+  }
 }

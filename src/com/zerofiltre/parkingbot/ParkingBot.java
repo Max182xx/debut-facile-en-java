@@ -1,31 +1,25 @@
 package com.zerofiltre.parkingbot;
 
-import java.security.SecureRandom;
+import com.zerofiltre.parkingbot.model.Ticket;
+import com.zerofiltre.parkingbot.model.Vehicule;
+import com.zerofiltre.parkingbot.service.ParkingService;
+
+
 
 public class ParkingBot {
 
-  static String[] customers =
-      {"Leye", "Ali", "Réné", "Booba", "Léa", "Hamza", "Philippe", "Zineb", "Jules", "Mukul", "Will"};
-
-  static int parkingSize = new SecureRandom().nextInt(10);
-
-  /**
-   * Ceci est la méthode Main
-   *
-   * @param args : Tableau de données entrées lors du lancement de l'application
-   */
   public static void main(String[] args) {
-
+    processVehicules();
   }
 
+  private static void processVehicules() {
+    Vehicule vehicule = new Vehicule();
+    vehicule.setRegistrationNumber("LS-666-DV");
+    vehicule.setCategory("Citadine");
+    ParkingService parkingService = new ParkingService();
+    Ticket ticket = parkingService.processIncomingVehicule(vehicule);
 
-  /**
-   *
-   * @param customer Le client à qui dire Hello
-   */
-  private static void sayHello(String customer) {
-    String welcomeSentence = "Hello " + customer;
-    System.out.println(welcomeSentence);
+    System.out.println(ticket);
   }
 
 }
